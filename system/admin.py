@@ -51,6 +51,11 @@ class UserFeatureInline(admin.TabularInline):
     extra = 1
 
 
+class SystemInline(admin.TabularInline):
+    model = System
+    extra = 1
+
+
 class SystemAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['system', 'type']}),
@@ -99,7 +104,7 @@ class NewAreaAdmin(admin.ModelAdmin):
     ]
     list_display = ('new_area', 'new_area_short', 'new_area_description')
     ordering = ['new_area_short']
-    inlines = [UserFeatureInline,]
+    inlines = [UserFeatureInline, SystemInline]
 
 
 class BackupAdmin(admin.ModelAdmin):
