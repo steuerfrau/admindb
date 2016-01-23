@@ -55,16 +55,16 @@ class SystemAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['system', 'type']}),
 	('Details', {'fields': ['system_description', 'system_note']}),
-	('Mapping', {'fields': ['area', 'landspace']})
+	('Mapping', {'fields': ['area', 'new_area', 'landspace']})
 	# ('Details', {'fields': ['system_description', 'system_note'], 'classes': ['collapse']}),
 	# ('Mapping', {'fields': ['area', 'landspace'], 'classes': ['collapse']})
     ]
     inlines = [NetworkServiceMapInline, RunlevelServiceMapInline, FilesystemInline, BackupInline]
     # fields = ['system', 'type_id', 'system_description', 'system_note', 'area_id', 'landspace_id']
-    list_display = ('system', 'area', 'type', 'landspace')
+    list_display = ('system', 'new_area', 'area', 'type', 'landspace')
     list_filter = ('area', 'type', 'landspace')
     search_fields = ['system']
-    ordering = ('area', 'system')
+    ordering = ('new_area', 'area', 'system')
 
 class UserFeatureAdmin(admin.ModelAdmin):
     fieldsets = [

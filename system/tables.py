@@ -25,7 +25,7 @@ class SystemTable(tables.Table):
         model = System
         # add class="paleblue" to <table> tag
         attrs = {"class": "paleblue"}
-        sequence = ("system", "area", "system_description", "type", "landspace")
+        sequence = ("system", "new_area", "area", "system_description", "type", "landspace")
         orderable = True
         order_by = ("area", "landspace", "type", "system")
 

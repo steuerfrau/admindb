@@ -42,6 +42,7 @@ class System(models.Model):
     system_description = models.CharField(max_length=255, blank=True)
     system_note = models.TextField(blank=True)
     area = models.ForeignKey(Area, blank=True, null=True, on_delete=models.SET_NULL)
+    new_area = models.ForeignKey(NewArea, blank=True, null=True, on_delete=models.SET_NULL)
     landspace = models.ForeignKey(Landspace, blank=True, null=True, on_delete=models.SET_NULL)
     type = models.ForeignKey(Type, blank=True, null=True, on_delete=models.SET_NULL)
     def __str__(self):              # __unicode__ on Python 2
