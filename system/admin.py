@@ -47,7 +47,7 @@ class BackupInline(admin.TabularInline):
 
 class UserFeatureInline(admin.TabularInline):
     model = UserFeature
-    exclude = ['distribution_of_feature_note',]
+    exclude = ['distribution_of_feature_note', 'user_feature_responsible_system_engineering', 'user_feature_responsible_implementation', 'user_feature_responsible_maintenance', 'user_feature_responsible_user_support', 'user_feature_responsible_documentation', 'user_feature_product_owner', 'area']
     extra = 1
 
 
@@ -96,7 +96,7 @@ class AreaAdmin(admin.ModelAdmin):
         (None, {'fields': ['area', 'area_description']})
     ]
     ordering = ['area']
-    inlines = [UserFeatureInline,]
+    # inlines = [UserFeatureInline,]
 
 
 class NewAreaAdmin(admin.ModelAdmin):
