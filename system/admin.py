@@ -53,6 +53,7 @@ class UserFeatureInline(admin.TabularInline):
 
 class SystemInline(admin.TabularInline):
     model = System
+    exclude = ('system_note',)
     extra = 1
 
 
