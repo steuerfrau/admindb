@@ -16,7 +16,7 @@ class AreaTable(tables.Table):
         model = NewArea
         # add class="paleblue" to <table> tag
         attrs = {"class": "paleblue"}
-        sequence =("new_area", "new_area_description")
+        sequence =("new_area", "new_area_short", "new_area_description")
         orderable = True
         order_by = ("new_area")
 
