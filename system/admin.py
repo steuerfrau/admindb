@@ -74,7 +74,7 @@ class SystemAdmin(admin.ModelAdmin):
 
 class UserFeatureAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['user_feature', 'user_feature_type', 'center_requirement', 'user_feature_description', 'area', 'new_area', 'distribution_of_feature', 'distribution_of_feature_note']}),
+        (None, {'fields': ['user_feature', 'user_feature_type', 'user_feature_documentation_reviewed', 'center_requirement', 'user_feature_description', 'area', 'new_area', 'distribution_of_feature', 'distribution_of_feature_note']}),
         ('Fixed Responsibilities', {
              'classes': ('wide', 'extrapretty'),
              'fields': ['user_feature_responsible_system_engineering',
@@ -84,7 +84,7 @@ class UserFeatureAdmin(admin.ModelAdmin):
 		     'user_feature_responsible_documentation',
                      'user_feature_product_owner']})    
     ]
-    list_display = ('user_feature', 'user_feature_type', 'center_requirement', 'new_area', 'area', 'distribution_of_feature')
+    list_display = ('user_feature', 'user_feature_type', 'user_feature_documentation_reviewed', 'center_requirement', 'new_area', 'area', 'distribution_of_feature')
     list_filter = ('center_requirement', 'area', 'distribution_of_feature')
     ordering = ('new_area', 'user_feature')
     inlines = [StaffUserFeatureMapInline, NetworkServiceMapInline, RunlevelServiceMapInline]

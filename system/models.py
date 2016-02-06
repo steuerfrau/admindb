@@ -99,6 +99,7 @@ class UserFeature(models.Model):
     user_feature_responsible_user_support = models.ForeignKey(Staff,related_name='+')
     user_feature_responsible_documentation = models.ForeignKey(Staff,related_name='+')
     user_feature_product_owner = models.ForeignKey(Staff,related_name='+')
+    user_feature_documentation_reviewed = models.BooleanField()
     area = models.ForeignKey(Area)
     new_area = models.ForeignKey(NewArea)
     center_requirement = models.ForeignKey(CenterRequirement)
