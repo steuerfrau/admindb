@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+# Database configuration with secret password excluded from GIT and in
+# seperate file.
+
+from .settings_secret import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,8 +30,25 @@ SECRET_KEY = '=a2)z5+5_jf*9&i14$s5@u-)8j9ipder!k_ebe$=opf7x3n=u@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Uncommented block due to warning:
+#
+# ?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8
+# and the TEMPLATES dictionary takes precedence. You must put the values of the 
+# following settings into your default TEMPLATES dict: 
+# TEMPLATE_CONTEXT_PROCESSORS, TEMPLATE_DEBUG.
+#
+# TEMPLATE_DEBUG = True
+# 
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     'django.contrib.auth.context_processors.auth',
+#     'django.core.context_processors.debug',
+#     'django.core.context_processors.i18n',
+#     'django.core.context_processors.request',
+#     'django.core.context_processors.static',
+#     'django.contrib.messages.context_processors.messages',
+# )
 
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -37,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'itservices',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -63,6 +86,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -70,33 +95,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'admindb.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.' +
+            'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.' +
+            'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.' +
+            'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.' +
+            'NumericPasswordValidator',
     },
 ]
 

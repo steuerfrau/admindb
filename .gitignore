@@ -1,6 +1,2 @@
-<<<<<<< HEAD
-admin/settings_secret.py
-=======
-admindb/admin/settings_secret.py
-admindb/system/__pycache__/* 
->>>>>>> 2a70df931f264abc81e0e2fde4ea35435f705dc5
+settings_secret.py
+__pycache__ 
