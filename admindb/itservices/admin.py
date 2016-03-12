@@ -22,6 +22,7 @@ class ITServiceAdmin(admin.ModelAdmin):
     # inlines = [<systems>, <staff>]
     search_fields = ('name',)
 
+
 admin.site.register(Distribution)
 admin.site.register(Group)
 admin.site.register(ITService, ITServiceAdmin)
