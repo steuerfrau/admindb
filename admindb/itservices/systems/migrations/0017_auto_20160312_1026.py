@@ -40,6 +40,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='cluster',
             name='host_plug',
-            field=models.OneToOneField(blank=True, on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
+            field=models.OneToOneField(
+                blank=True, on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
         ),
     ]

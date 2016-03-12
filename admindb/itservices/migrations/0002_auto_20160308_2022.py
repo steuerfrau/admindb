@@ -16,7 +16,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Type',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.TextField(blank=True)),
             ],
@@ -24,7 +25,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='itservice',
             name='its_type',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='itservices.Type'),
+            field=models.ForeignKey(
+                default=1, on_delete=django.db.models.deletion.CASCADE, to='itservices.Type'),
             preserve_default=False,
         ),
     ]

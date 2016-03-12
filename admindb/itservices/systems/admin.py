@@ -1,3 +1,13 @@
+"""Django Admin configuration for App systems.
+
+Author: Melanie Desaive
+Copyrigh (c) 2016, Melanie Desaive
+All rights reserved.
+
+Licensed under the GNU General Public License.
+See: COPYING.txt in project root.
+"""
+
 from django.contrib import admin
 
 from itservices.systems.models import Landspace
@@ -24,23 +34,25 @@ class ClusterMapComputerAdmin(admin.ModelAdmin):
 
 # class ComputerAdmin(admin.ModelAdmin):
 #     pass
-#     # fieldsets = [
-#     #     (None, {'fields': ['system', 'type']}),
-#     # ('Details', {'fields': ['system_description', 'system_note']}),
-#     # ('Mapping', {'fields': ['area', 'new_area', 'landspace']})
-#     # # ('Details', {'fields': ['system_description', 'system_note'], 'classes': ['collapse']}),
-#     # # ('Mapping', {'fields': ['area', 'landspace'], 'classes': ['collapse']})
-#     # ]
+# fieldsets = [
+# (None, {'fields': ['system', 'type']}),
+# ('Details', {'fields': ['system_description', 'system_note']}),
+# ('Mapping', {'fields': ['area', 'new_area', 'landspace']})
+# ('Details', {'fields': ['system_description', 'system_note'], 'classes': ['collapse']}),
+# ('Mapping', {'fields': ['area', 'landspace'], 'classes': ['collapse']})
+# ]
 #     inlines = (HostMapComputerInline, )
-#     # fields = ['system', 'type_id', 'system_description', 'system_note', 'area_id', 'landspace_id']
-#     # list_display = ('system', 'new_area', 'area', 'type', 'landspace')
-#     # list_filter = ('area', 'type', 'landspace')
-#     # search_fields = ['system']
-#     # ordering = ('new_area', 'area', 'system')
+# fields = ['system', 'type_id', 'system_description', 'system_note', 'area_id', 'landspace_id']
+# list_display = ('system', 'new_area', 'area', 'type', 'landspace')
+# list_filter = ('area', 'type', 'landspace')
+# search_fields = ['system']
+# ordering = ('new_area', 'area', 'system')
 
 
 class ComputerAdmin(admin.ModelAdmin):
-    fieldsets = [(None, {'fields': ['name', 'description', 'note', 'itservice', 'landspace']}),
+    fieldsets = [(
+        None, {
+            'fields': ['name', 'description', 'note', 'itservice', 'landspace']}),
     ]
     list_display = ('name', 'description', 'itservice', 'landspace')
 
@@ -52,10 +64,13 @@ class ComputerInline(admin.TabularInline):
 
 
 class ClusterAdmin(admin.ModelAdmin):
-    fieldsets = [(None, {'fields': ['name', 'cluster_technology', 'description', 'note', 'itservice', 'landspace']}),
+    fieldsets = [(
+        None, {
+            'fields': ['name', 'cluster_technology', 'description', 'note', 'itservice', 'landspace']}),
     ]
     inlines = (ClusterMapComputerInline, )
-    list_display = ('name', 'cluster_technology', 'description', 'itservice', 'landspace')
+    list_display = ('name', 'cluster_technology',
+                    'description', 'itservice', 'landspace')
 
 
 class ClusterInline(admin.TabularInline):
@@ -68,7 +83,8 @@ class HostInstanceAdmin(admin.ModelAdmin):
     pass
     # fieldsets = [(None, {'fields': ['name', 'virtualization_technology', 'description', 'note', 'itservice', 'landspace']}),
     # ]
-    # list_display = ('name', 'virtualization_technology', 'description', 'note', 'itservice', 'landspace')
+    # list_display = ('name', 'virtualization_technology', 'description',
+    # 'note', 'itservice', 'landspace')
 
 
 class HostPlugAdmin(admin.ModelAdmin):
@@ -102,4 +118,3 @@ admin.site.register(ClusterTechnology)
 admin.site.register(ClusterMapComputer)
 admin.site.register(Container)
 admin.site.register(VM)
-

@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Cluster',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('note', models.TextField(blank=True)),
@@ -30,11 +31,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ClusterMapComputer',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('note', models.TextField(blank=True)),
-                ('cluster', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.Cluster')),
+                ('cluster', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='systems.Cluster')),
             ],
             options={
                 'abstract': False,
@@ -44,7 +47,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ClusterTechnology',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
             ],
@@ -56,7 +60,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Computer',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('note', models.TextField(blank=True)),
@@ -69,7 +74,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ComputerRole',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
             ],
@@ -77,7 +83,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Container',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('note', models.TextField(blank=True)),
@@ -90,7 +97,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ContainerTechnology',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
             ],
@@ -102,13 +110,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='HostPlug',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
             ],
         ),
         migrations.CreateModel(
             name='HostTechnology',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
             ],
@@ -120,13 +130,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='VM',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('note', models.TextField(blank=True)),
-                ('host', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug')),
-                ('itservice', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService')),
-                ('landspace', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace')),
+                ('host', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug')),
+                ('itservice', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService')),
+                ('landspace', models.ForeignKey(blank=True, null=True,
+                 on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace')),
             ],
             options={
                 'abstract': False,
@@ -136,7 +150,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='VMTechnology',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
             ],
@@ -148,81 +163,97 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='vm',
             name='technology',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.VMTechnology'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.VMTechnology'),
         ),
         migrations.AddField(
             model_name='container',
             name='host',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
         ),
         migrations.AddField(
             model_name='container',
             name='itservice',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
         ),
         migrations.AddField(
             model_name='container',
             name='landspace',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
+            field=models.ForeignKey(
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
         ),
         migrations.AddField(
             model_name='container',
             name='technology',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.ContainerTechnology'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.ContainerTechnology'),
         ),
         migrations.AddField(
             model_name='computer',
             name='host_plug',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
         ),
         migrations.AddField(
             model_name='computer',
             name='itservice',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
         ),
         migrations.AddField(
             model_name='computer',
             name='landspace',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
+            field=models.ForeignKey(
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
         ),
         migrations.AddField(
             model_name='clustermapcomputer',
             name='computer',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.Computer'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.Computer'),
         ),
         migrations.AddField(
             model_name='clustermapcomputer',
             name='itservice',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
         ),
         migrations.AddField(
             model_name='clustermapcomputer',
             name='landspace',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
+            field=models.ForeignKey(
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
         ),
         migrations.AddField(
             model_name='clustermapcomputer',
             name='role',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.ComputerRole'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.ComputerRole'),
         ),
         migrations.AddField(
             model_name='cluster',
             name='cluster_technology',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.ClusterTechnology'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.ClusterTechnology'),
         ),
         migrations.AddField(
             model_name='cluster',
             name='host_plug',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
         ),
         migrations.AddField(
             model_name='cluster',
             name='itservice',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService'),
         ),
         migrations.AddField(
             model_name='cluster',
             name='landspace',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
+            field=models.ForeignKey(
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
         ),
     ]

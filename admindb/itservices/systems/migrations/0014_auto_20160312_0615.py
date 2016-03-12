@@ -17,13 +17,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='HostInstance',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('note', models.TextField(blank=True)),
-                ('host_technology', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='systems.HostTechnology')),
-                ('itservice', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService')),
-                ('landspace', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace')),
+                ('host_technology', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='systems.HostTechnology')),
+                ('itservice', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService')),
+                ('landspace', models.ForeignKey(blank=True, null=True,
+                 on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace')),
             ],
             options={
                 'ordering': ['name'],
@@ -33,6 +37,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='computer',
             name='host_plug',
-            field=models.OneToOneField(blank=True, on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
+            field=models.OneToOneField(
+                blank=True, on_delete=django.db.models.deletion.CASCADE, to='systems.HostPlug'),
         ),
     ]

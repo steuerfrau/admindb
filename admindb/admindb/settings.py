@@ -8,6 +8,13 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
+
+Author: Melanie Desaive
+Copyrigh (c) 2016, Melanie Desaive
+All rights reserved.
+
+Licensed under the GNU General Public License.
+See: COPYING.txt in project root.
 """
 
 import os
@@ -33,12 +40,12 @@ DEBUG = True
 # Uncommented block due to warning:
 #
 # ?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8
-# and the TEMPLATES dictionary takes precedence. You must put the values of the 
-# following settings into your default TEMPLATES dict: 
+# and the TEMPLATES dictionary takes precedence. You must put the values of the
+# following settings into your default TEMPLATES dict:
 # TEMPLATE_CONTEXT_PROCESSORS, TEMPLATE_DEBUG.
 #
 # TEMPLATE_DEBUG = True
-# 
+#
 # TEMPLATE_CONTEXT_PROCESSORS = (
 #     'django.contrib.auth.context_processors.auth',
 #     'django.core.context_processors.debug',
@@ -61,6 +68,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'itservices',
     'itservices.systems',
+    'itservices.systems.hardware',
+    'itservices.systems.linuxos',
 ]
 
 MIDDLEWARE_CLASSES = [

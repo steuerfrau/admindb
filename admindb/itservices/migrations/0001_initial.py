@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Distribution',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.TextField(blank=True)),
             ],
@@ -25,7 +26,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Group',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
                 ('short', models.CharField(max_length=8)),
                 ('description', models.CharField(blank=True, max_length=255)),
@@ -37,13 +39,16 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ITService',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75, unique=True)),
                 ('short', models.CharField(max_length=8)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('distribution_note', models.TextField(blank=True)),
-                ('distribution', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.Distribution')),
-                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.Group')),
+                ('distribution', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='itservices.Distribution')),
+                ('group', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='itservices.Group')),
             ],
             options={
                 'ordering': ('name',),

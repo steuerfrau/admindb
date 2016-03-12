@@ -21,13 +21,15 @@ class Migration(migrations.Migration):
                 ('name', models.AutoField(primary_key=True, serialize=False)),
                 ('description', models.CharField(blank=True, max_length=255)),
                 ('note', models.TextField(blank=True)),
-                ('itservice', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService')),
+                ('itservice', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='itservices.ITService')),
             ],
         ),
         migrations.CreateModel(
             name='Landspace',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=75)),
                 ('description', models.CharField(blank=True, max_length=255)),
             ],
@@ -35,6 +37,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='computer',
             name='landspace',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
+            field=models.ForeignKey(
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='systems.Landspace'),
         ),
     ]

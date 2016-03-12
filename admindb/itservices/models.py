@@ -1,7 +1,16 @@
 """
 Model definition for app itservice.
+
+Author: Melanie Desaive
+Copyrigh (c) 2016, Melanie Desaive
+All rights reserved.
+
+Licensed under the GNU General Public License.
+See: COPYING.txt in project root.
 """
+
 from django.db import models
+
 
 class Type(models.Model):
     name = models.CharField(max_length=75)
